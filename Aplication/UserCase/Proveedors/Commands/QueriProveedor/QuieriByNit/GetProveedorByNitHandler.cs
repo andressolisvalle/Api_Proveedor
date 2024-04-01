@@ -1,4 +1,5 @@
-﻿using Aplication.UserCase.Proveedors.Dto;
+﻿using Aplication.Common.Exceptions;
+using Aplication.UserCase.Proveedors.Dto;
 using AutoMapper;
 using Domain.Services;
 using MediatR;
@@ -23,7 +24,8 @@ namespace Aplication.UserCase.Proveedors.Commands.QueriProveedor.QuieriByNit
         public async Task<ProveedorDto> Handle(GetProveedorByNit request, CancellationToken cancellationToken)
         {
             var buscarProveedor = await _service.GetSupplierById(request.Id);
-            _ = buscarProveedor ?? throw new ArgumentNullException($"Este Id: {request.Id} No se encuentra registrado");
+            _ = buscarProveedor ?? throw new EntityNotFundException();
+            //ArgumentNullException($"Este Id: {request.Id} No se encuentra registrado");
             return _mapper.Map<ProveedorDto>(buscarProveedor);
         }
     }

@@ -23,6 +23,7 @@ public class ProveedorController : ControllerBase
 {
     private  IMediator _mediator;
 
+    public ProveedorController(IMediator mediator) => _mediator = mediator;
     public IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>()!;
 
     [HttpPost]
