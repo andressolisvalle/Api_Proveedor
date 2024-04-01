@@ -7,10 +7,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-
-
+using Newtonsoft.Json.Linq;
+using static System.Collections.Specialized.BitVector32;
 namespace Infrastructure.Extensions.Jwt;
 
+//Este método se utiliza para configurar y agregar la autenticación JWT(JSON Web Token)
+//en ASP.NET Core, utilizando las configuraciones definidas en la sección "JwtSettings"
+//del archivo de configuración.
 public static class JwtExtensions
 {
     public static IServiceCollection AddJwtSettings(this IServiceCollection svc, IConfiguration configuration)

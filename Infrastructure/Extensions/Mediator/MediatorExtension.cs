@@ -13,6 +13,7 @@ public static class MediatorExtension
 {
     public static IServiceCollection AddMediator(this IServiceCollection services)
     {
+        //registra los handlres 
         var assembly = Assembly.Load("aplication");
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
 

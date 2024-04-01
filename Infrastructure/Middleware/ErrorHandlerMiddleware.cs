@@ -10,9 +10,12 @@ using System.Threading.Tasks;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 using Aplication.Common.Exceptions;
-
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Infrastructure.Middleware;
 
+//Este middleware intercepta las solicitudes HTTP y captura cualquier excepción
+//que se produzca durante su procesamiento, proporcionando una respuesta JSON
+//adecuada en caso de error.
 public class ErrorHandlerMiddleware
 {
     private readonly RequestDelegate _next;

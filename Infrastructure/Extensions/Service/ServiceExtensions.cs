@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Extensions.Service;
 
+//se utiliza para registrar servicios relacionados con el dominio
+//en el contenedor de dependencias, permitiendo que
+//estos servicios estén disponibles para su uso en toda la aplicación.
 public static class ServiceExtensions
 {
     public static IServiceCollection AddDomainServices(this IServiceCollection services)
